@@ -35,67 +35,7 @@ width, height, colors = 720, 480, 255
 ymax, xmax = 3.5, 5
 frame, frames = 0, 250
 color_list = [[[253, 231, 36], [78, 1, 94]], [[42, 106, 219], [227, 95, 50]], [[12, 201, 34], [33, 207, 204]], [[140, 33, 217], [23, 230, 209]], [[230, 51, 23], [237, 121, 198]], [[random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)], [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]] ]
-# colorlist = [[[253, 231, 36], [78, 1, 94]], [[42, 106, 219], [227, 95, 50]], [[12, 201, 34], [33, 207, 204]], [[140, 33, 217], [23, 230, 209]], [[230, 51, 23], [237, 121, 198]]]
 
-
-# Function to update the lava lamp display
-# def update_lava_lamp(root, image):
-#     global frame  # Declare frame as global to modify the external variable
-#     global pot_val
-#     global joy_y
-#     y, x = np.ogrid[ymax:-ymax:height*1j, -xmax:xmax:width*1j]
-#     cy, cx = np.cos(2 * y), np.cos(2 * x)
-#     ppmheader = b"P6\n%d %d\n%d\n" % (width, height, colors)
-    
-#     while True:
-#         frame = (frame + 1) % frames  # Update and use the global frame variable
-#         phase = 2 * np.pi * frame / frames
-#         plane = cx * np.cos(y + phase) > cy * np.sin(y + phase)
-#         temp_arr = color_list[button_presses % len(color_list)]
-#         factor = int(pot_val) / 4095
-#         outer_color, inner_color = temp_arr[0], temp_arr[1]
-#         outer_color = [outer_color[0] * factor, outer_color[1] * factor, outer_color[2] * factor]
-#         inner_color = [inner_color[0] * factor, inner_color[1] * factor, inner_color[2] * factor]
-
-#         rgbcolors = np.uint8([outer_color, inner_color])
-#         rgbimg = rgbcolors[plane.astype(np.uint8)].tobytes()
-#         image.put(data=ppmheader + rgbimg)
-#         root.update()
-#         time.sleep(0.06)
-#         # time.sleep(0.06 - (0.04 * (joy_y - 1885)/2500))
-
-# def update_lava_lamp(root, image):
-#     global frame  # Declare frame as global to modify the external variable
-#     global pot_val
-#     global joy_y
-#     y, x = np.ogrid[ymax:-ymax:height*1j, -xmax:xmax:width*1j]
-#     cy, cx = np.cos(2 * y), np.cos(2 * x)
-#     ppmheader = b"P6\n%d %d\n%d\n" % (width, height, colors)
-    
-#     neutral_position = 1854  # Midpoint value where joystick is untouched
-#     base_sleep_time = 0.06   # Base sleep time when joystick is at neutral
-#     speed_factor = 0.004   # Factor by which speed changes relative to joystick displacement
-
-#     while True:
-#         frame = (frame + 1) % frames  # Update and use the global frame variable
-#         phase = 2 * np.pi * frame / frames
-#         plane = cx * np.cos(y + phase) > cy * np.sin(y + phase)
-#         temp_arr = color_list[button_presses % len(color_list)]
-#         factor = int(pot_val) / 4095
-#         outer_color, inner_color = temp_arr[0], temp_arr[1]
-#         outer_color = [outer_color[0] * factor, outer_color[1] * factor, outer_color[2] * factor]
-#         inner_color = [inner_color[0] * factor, inner_color[1] * factor, inner_color[2] * factor]
-
-#         rgbcolors = np.uint8([outer_color, inner_color])
-#         rgbimg = rgbcolors[plane.astype(np.uint8)].tobytes()
-#         image.put(data=ppmheader + rgbimg)
-#         root.update()
-
-#         # Adjust sleep time based on joystick y-position
-#         joy_y_int = int(joy_y)  # Convert joystick y-position to integer
-#         speed_adjustment = (joy_y_int - neutral_position) * speed_factor
-#         sleep_time = max(0, base_sleep_time - speed_adjustment)  # Ensure non-negative sleep time
-#         time.sleep(sleep_time)
 def update_lava_lamp(root, image):
     global frame  # Declare frame as global to modify the external variable
     global pot_val
