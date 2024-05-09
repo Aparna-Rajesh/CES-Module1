@@ -11,3 +11,5 @@
 8. Insert your joystick into the breadboard.
 9. For the joystick wiring, connect the left-most pin to the negative (-) strip, the second pin from the left to the positive (+) strip, the VRX pin to pin 33 on the ESP, the VRY pin to pin 39 on the ESP, and the SW pin to pin 38 on the ESP.
 10. Finally, plug your ESP into your computer, upload [the provided code](https://github.com/Aparna-Rajesh/CES-Modules/blob/main/Module%201/mod1_01.ino) to the microcontroller, and once it is running, execute [this code](https://github.com/Aparna-Rajesh/CES-Modules/blob/main/Module%201/mod1_01.ino) on your laptop.
+
+Visit [this page](https://aparna-rajesh.github.io/) for the full README.
